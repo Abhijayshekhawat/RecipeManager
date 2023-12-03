@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace RecipeManager
 {
-    public partial class Form1 : Form
+    public partial class l : Form
     {
-        public Form1()
+        public l()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
