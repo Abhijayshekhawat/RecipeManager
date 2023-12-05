@@ -34,7 +34,7 @@
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -92,15 +92,15 @@
             this.lblTitle.TabIndex = 5;
             this.lblTitle.Text = "Welcome to Recipe Manager App!";
             // 
-            // label1
+            // lblDescription
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(226, 108);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(324, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Enter username and password below to enter Recipe Manager App";
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(226, 108);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(324, 13);
+            this.lblDescription.TabIndex = 6;
+            this.lblDescription.Text = "Enter username and password below to enter Recipe Manager App";
             // 
             // l
             // 
@@ -108,7 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);
@@ -130,7 +130,7 @@
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDescription;
     }
 }
 
