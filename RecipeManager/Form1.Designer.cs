@@ -1,6 +1,6 @@
 ﻿namespace RecipeManager
 {
-    partial class l
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,7 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
+            this.bttnCreate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -102,12 +103,23 @@
             this.lblDescription.TabIndex = 6;
             this.lblDescription.Text = "Enter username and password below to enter Recipe Manager App";
             // 
-            // l
+            // bttnCreate
+            // 
+            this.bttnCreate.Location = new System.Drawing.Point(267, 341);
+            this.bttnCreate.Name = "bttnCreate";
+            this.bttnCreate.Size = new System.Drawing.Size(208, 31);
+            this.bttnCreate.TabIndex = 7;
+            this.bttnCreate.Text = "Create an Account";
+            this.bttnCreate.UseVisualStyleBackColor = true;
+            this.bttnCreate.Click += new System.EventHandler(this.bttnCreate_Click);
+            // 
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bttnCreate);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblPassword);
@@ -115,8 +127,8 @@
             this.Controls.Add(this.bttnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
-            this.Name = "l";
-            this.Text = "Form1";
+            this.Name = "frmLogin";
+            this.Text = "Login Form";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,6 +143,7 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.Button bttnCreate;
     }
 }
 

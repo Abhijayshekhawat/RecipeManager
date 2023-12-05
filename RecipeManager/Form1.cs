@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RecipeManager
 {
-    public partial class l : Form
+    public partial class frmLogin : Form
     {
-        public l()
+        public frmLogin()
         {
             InitializeComponent();
         }
@@ -45,6 +45,13 @@ namespace RecipeManager
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void bttnCreate_Click(object sender, EventArgs e)
+        {
+            frmCreateAccount createAccount = new frmCreateAccount();
+            createAccount.Owner = this;
+            createAccount.ShowDialog();
         }
     }
 }
