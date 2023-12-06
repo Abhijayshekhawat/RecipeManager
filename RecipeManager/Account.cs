@@ -8,15 +8,36 @@ namespace RecipeManager
 {
     public class Account
     {
-        private int accountID;
         private string firstName;
         private string lastName;
         private string userName;
         private string password;  // Note: In a real-world application, store passwords securely, not as plain text.
-        public Account(string userName, string password)
+        public Account(string firstName, string lastName, string userName, string password)
         {
+            this.FirstName = firstName;
+            this.LastName = lastName;
             this.UserName = userName;
             this.Password = password;
+        }
+        public string FirstName {  
+            get { 
+                return firstName; 
+            } 
+            set
+            {
+                firstName = value;
+            }
+        }
+        public string LastName
+        {
+            get
+            {
+                return lastName;
+            }
+            set
+            {
+                lastName = value;
+            }
         }
         public string UserName
         {
@@ -32,7 +53,6 @@ namespace RecipeManager
                 userName = value;
             }
         }
-
         public string Password
         {
             get { 

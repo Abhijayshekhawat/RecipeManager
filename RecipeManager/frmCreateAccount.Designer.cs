@@ -37,7 +37,7 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
-            this.txtPasssword = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtRePassword = new System.Windows.Forms.TextBox();
             this.btnCreateAccount = new System.Windows.Forms.Button();
             this.lblTitleCreateAccount = new System.Windows.Forms.Label();
@@ -120,17 +120,19 @@
             this.txtUserName.Size = new System.Drawing.Size(154, 20);
             this.txtUserName.TabIndex = 8;
             // 
-            // txtPasssword
+            // txtPassword
             // 
-            this.txtPasssword.Location = new System.Drawing.Point(231, 246);
-            this.txtPasssword.Name = "txtPasssword";
-            this.txtPasssword.Size = new System.Drawing.Size(154, 20);
-            this.txtPasssword.TabIndex = 9;
+            this.txtPassword.Location = new System.Drawing.Point(231, 246);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(154, 20);
+            this.txtPassword.TabIndex = 9;
             // 
             // txtRePassword
             // 
             this.txtRePassword.Location = new System.Drawing.Point(231, 286);
             this.txtRePassword.Name = "txtRePassword";
+            this.txtRePassword.PasswordChar = '*';
             this.txtRePassword.Size = new System.Drawing.Size(154, 20);
             this.txtRePassword.TabIndex = 10;
             // 
@@ -175,7 +177,7 @@
             this.Controls.Add(this.lblTitleCreateAccount);
             this.Controls.Add(this.btnCreateAccount);
             this.Controls.Add(this.txtRePassword);
-            this.Controls.Add(this.txtPasssword);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtFirstName);
@@ -204,7 +206,7 @@
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.TextBox txtPasssword;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtRePassword;
         private System.Windows.Forms.Button btnCreateAccount;
         private System.Windows.Forms.Label lblTitleCreateAccount;
