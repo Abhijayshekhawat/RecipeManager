@@ -6,11 +6,42 @@ using System.Threading.Tasks;
 
 namespace RecipeManager
 {
-    class Recipe
+    public class Recipe
     {
-        public int Id { get; set; }
-        public string Name { get; set; }    
-        public string Description { get; set; }
-        
+        private string Name;
+        private List<string> Ingredients;
+        private string Instructions;
+        private string Category;
+
+
+        public string name
+        {
+            get { return this.Name; }
+            set { this.Name = value; }
+        }
+
+        public string instructions
+        {
+            get { return this.Instructions; }
+            set { this.Instructions = value; }
+        }
+
+        public string category
+        {
+            get { return this.Category; }
+            set { this.Category = value; }
+        }
+
+        public List<string> ingredients
+        {
+            get { return this.Ingredients; }
+            set { this.Ingredients = value; }
+        }
+
     }
+}
+
+
+
+
 }
