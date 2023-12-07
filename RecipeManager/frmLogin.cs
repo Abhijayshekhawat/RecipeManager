@@ -23,6 +23,10 @@ namespace RecipeManager
             if(am.Authenticate(txtUsername.Text, txtPassword.Text) == true)
             {
                 MessageBox.Show("Login Successful");
+                frmMain recipesForm = new frmMain(txtUsername.Text);
+                this.Hide();
+                recipesForm.ShowDialog();
+                this.Show();
             }
             else
             {
