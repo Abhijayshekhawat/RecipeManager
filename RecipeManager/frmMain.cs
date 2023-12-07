@@ -25,5 +25,13 @@ namespace RecipeManager
             string account = userManagement.GetAccountByUsername(authenticatedUser).FirstName.ToString() + " " + userManagement.GetAccountByUsername(authenticatedUser).LastName.ToString();
             lblAccountInformation.Text = "Welcome " + account;
         }
+
+        private void pBoxCreateRecipe_Click(object sender, EventArgs e)
+        {
+            frmCreateRecipe createRecipeForm = new frmCreateRecipe(authenticatedUser);
+            this.Hide();
+            createRecipeForm.ShowDialog();
+            this.Show();
+        }
     }
 }
