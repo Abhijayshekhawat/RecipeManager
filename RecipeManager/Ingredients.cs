@@ -40,4 +40,4 @@ namespace RecipeManager
         public int IngredientCholesterolPerUnit { get { return ingredientCholesterolPerUnit; } set { ingredientCholesterolPerUnit = value; } }
     }
 }
-}
+
