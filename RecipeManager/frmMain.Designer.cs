@@ -35,9 +35,15 @@
             this.pnlMealPlan = new System.Windows.Forms.Panel();
             this.pnlSearchRecipes = new System.Windows.Forms.Panel();
             this.lblMainTitle = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnSavedRecipes = new System.Windows.Forms.Button();
+            this.btnAccountInfo = new System.Windows.Forms.Button();
+            this.btnCreateRecipe = new System.Windows.Forms.Button();
+            this.pnlCreateRecipe.SuspendLayout();
             this.pnlAccountInformation.SuspendLayout();
+            this.pnlSavedRecipes.SuspendLayout();
+            this.pnlSearchRecipes.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAccountInformation
@@ -52,6 +58,7 @@
             // 
             // pnlCreateRecipe
             // 
+            this.pnlCreateRecipe.Controls.Add(this.btnCreateRecipe);
             this.pnlCreateRecipe.Location = new System.Drawing.Point(228, 91);
             this.pnlCreateRecipe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlCreateRecipe.Name = "pnlCreateRecipe";
@@ -70,6 +77,7 @@
             // 
             // pnlSavedRecipes
             // 
+            this.pnlSavedRecipes.Controls.Add(this.btnSavedRecipes);
             this.pnlSavedRecipes.Location = new System.Drawing.Point(80, 246);
             this.pnlSavedRecipes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlSavedRecipes.Name = "pnlSavedRecipes";
@@ -86,6 +94,7 @@
             // 
             // pnlSearchRecipes
             // 
+            this.pnlSearchRecipes.Controls.Add(this.btnAccountInfo);
             this.pnlSearchRecipes.Location = new System.Drawing.Point(228, 246);
             this.pnlSearchRecipes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlSearchRecipes.Name = "pnlSearchRecipes";
@@ -103,12 +112,12 @@
             this.lblMainTitle.TabIndex = 7;
             this.lblMainTitle.Text = "Recipe Manager";
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(184, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(220, 20);
-            this.textBox1.TabIndex = 8;
+            this.txtSearch.Location = new System.Drawing.Point(184, 33);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(220, 20);
+            this.txtSearch.TabIndex = 8;
             // 
             // button1
             // 
@@ -119,13 +128,40 @@
             this.button1.Text = "Search for Recipes";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // btnSavedRecipes
+            // 
+            this.btnSavedRecipes.Location = new System.Drawing.Point(11, 50);
+            this.btnSavedRecipes.Name = "btnSavedRecipes";
+            this.btnSavedRecipes.Size = new System.Drawing.Size(88, 23);
+            this.btnSavedRecipes.TabIndex = 0;
+            this.btnSavedRecipes.Text = "Saved Recipes";
+            this.btnSavedRecipes.UseVisualStyleBackColor = true;
+            // 
+            // btnAccountInfo
+            // 
+            this.btnAccountInfo.Location = new System.Drawing.Point(0, 50);
+            this.btnAccountInfo.Name = "btnAccountInfo";
+            this.btnAccountInfo.Size = new System.Drawing.Size(112, 23);
+            this.btnAccountInfo.TabIndex = 1;
+            this.btnAccountInfo.Text = "Account Information";
+            this.btnAccountInfo.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateRecipe
+            // 
+            this.btnCreateRecipe.Location = new System.Drawing.Point(12, 50);
+            this.btnCreateRecipe.Name = "btnCreateRecipe";
+            this.btnCreateRecipe.Size = new System.Drawing.Size(88, 23);
+            this.btnCreateRecipe.TabIndex = 1;
+            this.btnCreateRecipe.Text = "Create Recipe";
+            this.btnCreateRecipe.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 400);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblMainTitle);
             this.Controls.Add(this.pnlSearchRecipes);
             this.Controls.Add(this.pnlCreateRecipe);
@@ -136,8 +172,11 @@
             this.Name = "frmMain";
             this.Text = "frmMain";
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.pnlCreateRecipe.ResumeLayout(false);
             this.pnlAccountInformation.ResumeLayout(false);
             this.pnlAccountInformation.PerformLayout();
+            this.pnlSavedRecipes.ResumeLayout(false);
+            this.pnlSearchRecipes.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,7 +191,10 @@
         private System.Windows.Forms.Panel pnlMealPlan;
         private System.Windows.Forms.Panel pnlSearchRecipes;
         private System.Windows.Forms.Label lblMainTitle;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreateRecipe;
+        private System.Windows.Forms.Button btnSavedRecipes;
+        private System.Windows.Forms.Button btnAccountInfo;
     }
 }
