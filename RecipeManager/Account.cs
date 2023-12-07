@@ -11,7 +11,7 @@ namespace RecipeManager
         private string firstName;
         private string lastName;
         private string userName;
-        private string password;  // Note: In a real-world application, store passwords securely, not as plain text.
+        private string password;
         public Account(string firstName, string lastName, string userName, string password)
         {
             this.FirstName = firstName;

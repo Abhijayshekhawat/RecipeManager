@@ -12,127 +12,111 @@ namespace RecipeManager
     class AccountManagement
     {
         private List<Account> accounts;
-        private string strConnection;
-        const string filePath = @"..\..\Data\Accounts.accdb";
+        private string accConnectString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=../../Data/Accounts.accdb;";
+        OleDbConnection accConecction;
+        OleDbDataAdapter accDataAdapter;
+        OleDbCommand accCommand;
+        OleDbDataReader accDataReader;
+        //The data retrieved from a database and utilized by your program is stored in a DataSet
+        DataSet accDataSet;
+        //The DataSet contains one or more DataTables
+        DataTable accTable;
+        string queryString;
+
         public AccountManagement()
         {
-            strConnection = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={filePath}";
             accounts = new List<Account>();
             LoadAccounts();
         }
         private void LoadAccounts()
         {
-            OleDbConnection connection = new OleDbConnection(strConnection);
-            string query = "SELECT * FROM AccountInformation";
-            OleDbDataAdapter adapter = new OleDbDataAdapter(query, connection);
-            DataSet ds = new DataSet();
+            accConecction = new OleDbConnection(accConnectString);
 
-            try
+            queryString = "SELECT * FROM AccountInformation";
+            // Create a new OleDbCommand with the specified query and connection
+            accCommand = new OleDbCommand(queryString, accConecction);
+            accDataAdapter = new OleDbDataAdapter(accCommand);
+            // Create a new DataSet named "AccountsTable" and fill it with data from the database
+            accDataSet = new DataSet("AccountsTable");
+            //load data into the DataTable of a DataSet.
+            accDataAdapter.Fill(accDataSet, "AccountsTable");
+            accTable = accDataSet.Tables["AccountsTable"];
+            accounts.Clear();
+            foreach (DataRow row in accTable.Rows)
             {
-                adapter.Fill(ds, "AccountInformation");
-                foreach (DataRow row in ds.Tables["AccountInformation"].Rows)
-                {
-                    accounts.Add(new Account(row["FirstName"].ToString(), row["LastName"].ToString(),
-                                             row["UserName"].ToString(), row["Password"].ToString()));
-                }
-            }
-            catch (OleDbException ex)
-            {
-            }
-            finally
-            {
-                connection.Close();
+                accounts.Add(new Account(
+                    row["FirstName"].ToString(),
+                    row["LastName"].ToString(),
+                    row["UserName"].ToString(),
+                    row["Password"].ToString()));
             }
         }
         public void AddAccount(Account account)
         {
-            string cmdText = "INSERT INTO AccountInformation (FirstName, LastName, UserName, [Password]) VALUES ('" + account.FirstName + account.LastName + "','" + account.UserName + "','" + account.Password + "')";
-            OleDbConnection connection = new OleDbConnection(strConnection);
-            OleDbCommand cmd = new OleDbCommand(cmdText, connection);
-            try
-            {
-                connection.Open();
-                cmd.ExecuteNonQuery();
-                accounts.Add(account);
-            }
-            catch (OleDbException ex) { }
-            catch (SystemException ex) { }
-            finally { 
-                connection.Close(); 
-            } 
+            accConecction = new OleDbConnection(accConnectString);
+            queryString = "INSERT INTO AccountInformation (FirstName, LastName, UserName, [Password]) VALUES ('" + account.FirstName + "', '" + account.LastName + "', '" + account.UserName + "', '" + account.Password + "')";
+            accCommand = new OleDbCommand(queryString, accConecction);
+            accDataAdapter = new OleDbDataAdapter(accCommand);
+            //opening a database connection
+            accConecction.Open();
+            //used for executing SQL statements that do not return data, such as INSERT, UPDATE, DELETE
+            accCommand.ExecuteNonQuery();
+            accConecction.Close();
         }
-        //public void DeleteAccount(string userName)
-        //{
-        //    OleDbConnection connection = new OleDbConnection(strConnection);
-        //    string cmdText = "DELETE FROM AccountInformation WHERE UserName = ?";
-        //    OleDbCommand cmd = new OleDbCommand(cmdText, connection);
-        //    cmd.Parameters.AddWithValue("@UserName", userName);
-
-        //    try
-        //    {
-        //        connection.Open();
-        //        cmd.ExecuteNonQuery();
-        //    }
-        //    catch (OleDbException ex){}
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-        //    accounts.RemoveAll(a => a.UserName == userName);
-        //}
-        //public void UpdateAccount(Account account)
-        //{
-        //    OleDbConnection connection = new OleDbConnection(strConnection);
-        //    string cmdText = "UPDATE AccountInformation SET FirstName = ?, LastName = ?, [Password] = ? WHERE UserName = ?";
-        //    OleDbCommand cmd = new OleDbCommand(cmdText, connection);
-        //    cmd.Parameters.AddWithValue("@FirstName", account.FirstName);
-        //    cmd.Parameters.AddWithValue("@LastName", account.LastName);
-        //    cmd.Parameters.AddWithValue("@Password", account.Password);
-        //    cmd.Parameters.AddWithValue("@UserName", account.UserName);
-
-        //    try
-        //    {
-        //        connection.Open();
-        //        cmd.ExecuteNonQuery();
-        //    }
-        //    catch (OleDbException ex){}
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-
-        //    var existingAccount = accounts.Find(a => a.UserName == account.UserName);
-        //    if (existingAccount != null)
-        //    {
-        //        existingAccount.FirstName = account.FirstName;
-        //        existingAccount.LastName = account.LastName;
-        //        existingAccount.Password = account.Password;
-        //    }
-        //}
+        public void DeleteAccount(string userName)
+        {
+            accConecction = new OleDbConnection(accConnectString);
+            queryString = "DELETE FROM AccountInformation WHERE UserName = '" + userName + "'";
+            accCommand = new OleDbCommand(queryString, accConecction);
+            accConecction.Open();
+            accCommand.ExecuteNonQuery();
+            accConecction.Close();
+            LoadAccounts();
+        }
+        public void UpdateAccount(Account account)
+        {
+            accConecction = new OleDbConnection(accConnectString);
+            queryString = "UPDATE AccountInformation SET FirstName = '" + account.FirstName + "', LastName = '" + account.LastName + "', [Password] = '" + account.Password + "' WHERE UserName = '" + account.UserName + "'";
+            accCommand = new OleDbCommand(queryString, accConecction);
+            accConecction.Open();
+            accCommand.ExecuteNonQuery();
+            accConecction.Close();
+            LoadAccounts();
+        }
         public Account GetAccountByUsername(string userName)
         {
-            OleDbConnection connection = new OleDbConnection(strConnection);
-            string query = "SELECT * FROM AccountInformation WHERE UserName = ?";
-            OleDbDataAdapter adapter = new OleDbDataAdapter(query, connection);
-            adapter.SelectCommand.Parameters.AddWithValue("@UserName", userName);
+            accConecction = new OleDbConnection(accConnectString);
+            queryString = "SELECT * FROM AccountInformation WHERE UserName = '" + userName + "'";
+            accCommand = new OleDbCommand(queryString, accConecction);
+            accConecction.Open();
+            accDataReader = accCommand.ExecuteReader();
+            Account searchedAccount = null;
+            if (accDataReader.Read())
+            {
+                searchedAccount = new Account(
+                    accDataReader["FirstName"].ToString(),
+                    accDataReader["LastName"].ToString(),
+                    accDataReader["UserName"].ToString(),
+                    accDataReader["Password"].ToString());
+            }
 
-            DataSet ds = new DataSet();
-            try
+            accDataReader.Close();
+            accConecction.Close();
+
+            return searchedAccount;
+        }
+        public bool Authenticate(string username, string password)
+        {
+            Account accountToCheck = GetAccountByUsername(username);
+            if (accountToCheck.Password == password) 
             {
-                adapter.Fill(ds, "AccountInformation");
-                if (ds.Tables["AccountInformation"].Rows.Count > 0)
-                {
-                    DataRow row = ds.Tables["AccountInformation"].Rows[0];
-                    return new Account(row["FirstName"].ToString(), row["LastName"].ToString(),
-                                       row["UserName"].ToString(), row["Password"].ToString());
-                }
+                return true;
             }
-            catch (OleDbException ex){}
-            finally
+            else
             {
-                connection.Close();
+                return false;
             }
-            return null;
+
         }
 
 
