@@ -15,12 +15,11 @@ namespace RecipeManager
         private int ingredientFatPerUnit;
         private int ingredientCarbsPerUnit;
         private int ingredientProteinPerUnit;
-        private int ingredientCholesterolPerUnit;
+        private int ingredientCholesterolPerUnit;   
 
-        public Ingredients(string name, int quantity, bool allergen, int caloriesPerUnit, int fatPerUnit, int carbsPerUnit, int proteinPerUnit, int cholesterolPerUnit)
+        public Ingredients(string name, bool allergen, int caloriesPerUnit, int fatPerUnit, int carbsPerUnit, int proteinPerUnit, int cholesterolPerUnit)
         {
             ingredientName = name;
-            ingredientQuantity = quantity;
             isAllergen = allergen;
             ingredientCaloriesPerUnit = caloriesPerUnit;
             ingredientFatPerUnit = fatPerUnit;

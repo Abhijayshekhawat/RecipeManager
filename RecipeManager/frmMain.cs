@@ -27,6 +27,14 @@ namespace RecipeManager
             lblAccountInformation.Text = "Welcome " + account;
         }
 
+        private void pBoxCreateRecipe_Click(object sender, EventArgs e)
+        {
+            frmCreateRecipe createRecipeForm = new frmCreateRecipe(authenticatedUser);
+            this.Hide();
+            createRecipeForm.ShowDialog();
+            this.Show();
+        }
+
         private void btnSavedRecipes_Click(object sender, EventArgs e)
         {
             frmSavedRecipes savedRecipesForm;

@@ -7,7 +7,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace RecipeManager
 {
-    class Recipe
+    public class Recipe
     {
         private string recipeName;
         private string recipeDescription;
@@ -121,4 +121,9 @@ namespace RecipeManager
         }
 
     }
+}
+
+
+
+
 }
