@@ -30,16 +30,16 @@
         {
             this.lblAccountInformation = new System.Windows.Forms.Label();
             this.pnlCreateRecipe = new System.Windows.Forms.Panel();
+            this.btnCreateRecipe = new System.Windows.Forms.Button();
             this.pnlAccountInformation = new System.Windows.Forms.Panel();
             this.pnlSavedRecipes = new System.Windows.Forms.Panel();
+            this.btnSavedRecipes = new System.Windows.Forms.Button();
             this.pnlMealPlan = new System.Windows.Forms.Panel();
             this.pnlSearchRecipes = new System.Windows.Forms.Panel();
+            this.btnAccountInfo = new System.Windows.Forms.Button();
             this.lblMainTitle = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnSavedRecipes = new System.Windows.Forms.Button();
-            this.btnAccountInfo = new System.Windows.Forms.Button();
-            this.btnCreateRecipe = new System.Windows.Forms.Button();
             this.pnlCreateRecipe.SuspendLayout();
             this.pnlAccountInformation.SuspendLayout();
             this.pnlSavedRecipes.SuspendLayout();
@@ -60,17 +60,26 @@
             // 
             this.pnlCreateRecipe.Controls.Add(this.btnCreateRecipe);
             this.pnlCreateRecipe.Location = new System.Drawing.Point(228, 91);
-            this.pnlCreateRecipe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlCreateRecipe.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCreateRecipe.Name = "pnlCreateRecipe";
             this.pnlCreateRecipe.Size = new System.Drawing.Size(112, 122);
             this.pnlCreateRecipe.TabIndex = 3;
+            // 
+            // btnCreateRecipe
+            // 
+            this.btnCreateRecipe.Location = new System.Drawing.Point(12, 50);
+            this.btnCreateRecipe.Name = "btnCreateRecipe";
+            this.btnCreateRecipe.Size = new System.Drawing.Size(88, 23);
+            this.btnCreateRecipe.TabIndex = 1;
+            this.btnCreateRecipe.Text = "Create Recipe";
+            this.btnCreateRecipe.UseVisualStyleBackColor = true;
             // 
             // pnlAccountInformation
             // 
             this.pnlAccountInformation.BackColor = System.Drawing.Color.Transparent;
             this.pnlAccountInformation.Controls.Add(this.lblAccountInformation);
             this.pnlAccountInformation.Location = new System.Drawing.Point(380, 91);
-            this.pnlAccountInformation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlAccountInformation.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAccountInformation.Name = "pnlAccountInformation";
             this.pnlAccountInformation.Size = new System.Drawing.Size(142, 68);
             this.pnlAccountInformation.TabIndex = 6;
@@ -79,15 +88,25 @@
             // 
             this.pnlSavedRecipes.Controls.Add(this.btnSavedRecipes);
             this.pnlSavedRecipes.Location = new System.Drawing.Point(80, 246);
-            this.pnlSavedRecipes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlSavedRecipes.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSavedRecipes.Name = "pnlSavedRecipes";
             this.pnlSavedRecipes.Size = new System.Drawing.Size(112, 122);
             this.pnlSavedRecipes.TabIndex = 2;
             // 
+            // btnSavedRecipes
+            // 
+            this.btnSavedRecipes.Location = new System.Drawing.Point(11, 50);
+            this.btnSavedRecipes.Name = "btnSavedRecipes";
+            this.btnSavedRecipes.Size = new System.Drawing.Size(88, 23);
+            this.btnSavedRecipes.TabIndex = 0;
+            this.btnSavedRecipes.Text = "Saved Recipes";
+            this.btnSavedRecipes.UseVisualStyleBackColor = true;
+            this.btnSavedRecipes.Click += new System.EventHandler(this.btnSavedRecipes_Click);
+            // 
             // pnlMealPlan
             // 
             this.pnlMealPlan.Location = new System.Drawing.Point(80, 91);
-            this.pnlMealPlan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlMealPlan.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMealPlan.Name = "pnlMealPlan";
             this.pnlMealPlan.Size = new System.Drawing.Size(112, 122);
             this.pnlMealPlan.TabIndex = 1;
@@ -96,10 +115,19 @@
             // 
             this.pnlSearchRecipes.Controls.Add(this.btnAccountInfo);
             this.pnlSearchRecipes.Location = new System.Drawing.Point(228, 246);
-            this.pnlSearchRecipes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlSearchRecipes.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSearchRecipes.Name = "pnlSearchRecipes";
             this.pnlSearchRecipes.Size = new System.Drawing.Size(112, 122);
             this.pnlSearchRecipes.TabIndex = 4;
+            // 
+            // btnAccountInfo
+            // 
+            this.btnAccountInfo.Location = new System.Drawing.Point(0, 50);
+            this.btnAccountInfo.Name = "btnAccountInfo";
+            this.btnAccountInfo.Size = new System.Drawing.Size(112, 23);
+            this.btnAccountInfo.TabIndex = 1;
+            this.btnAccountInfo.Text = "Account Information";
+            this.btnAccountInfo.UseVisualStyleBackColor = true;
             // 
             // lblMainTitle
             // 
@@ -128,33 +156,6 @@
             this.button1.Text = "Search for Recipes";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // btnSavedRecipes
-            // 
-            this.btnSavedRecipes.Location = new System.Drawing.Point(11, 50);
-            this.btnSavedRecipes.Name = "btnSavedRecipes";
-            this.btnSavedRecipes.Size = new System.Drawing.Size(88, 23);
-            this.btnSavedRecipes.TabIndex = 0;
-            this.btnSavedRecipes.Text = "Saved Recipes";
-            this.btnSavedRecipes.UseVisualStyleBackColor = true;
-            // 
-            // btnAccountInfo
-            // 
-            this.btnAccountInfo.Location = new System.Drawing.Point(0, 50);
-            this.btnAccountInfo.Name = "btnAccountInfo";
-            this.btnAccountInfo.Size = new System.Drawing.Size(112, 23);
-            this.btnAccountInfo.TabIndex = 1;
-            this.btnAccountInfo.Text = "Account Information";
-            this.btnAccountInfo.UseVisualStyleBackColor = true;
-            // 
-            // btnCreateRecipe
-            // 
-            this.btnCreateRecipe.Location = new System.Drawing.Point(12, 50);
-            this.btnCreateRecipe.Name = "btnCreateRecipe";
-            this.btnCreateRecipe.Size = new System.Drawing.Size(88, 23);
-            this.btnCreateRecipe.TabIndex = 1;
-            this.btnCreateRecipe.Text = "Create Recipe";
-            this.btnCreateRecipe.UseVisualStyleBackColor = true;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,7 +169,7 @@
             this.Controls.Add(this.pnlSavedRecipes);
             this.Controls.Add(this.pnlMealPlan);
             this.Controls.Add(this.pnlAccountInformation);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
             this.Text = "frmMain";
             this.Load += new System.EventHandler(this.frmMain_Load);
