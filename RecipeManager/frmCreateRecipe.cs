@@ -19,5 +19,16 @@ namespace RecipeManager
             authenticatedUser = username;
         }
 
+        private void btnAddIngredient_Click(object sender, EventArgs e)
+        {
+            frmAddIngredient addAnIngredient = new frmAddIngredient();
+            addAnIngredient.Owner = this;
+            addAnIngredient.ShowDialog();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
