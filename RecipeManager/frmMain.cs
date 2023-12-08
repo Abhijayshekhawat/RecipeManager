@@ -13,12 +13,11 @@ namespace RecipeManager
     public partial class frmMain : Form
     {
         private string authenticatedUser;
-        private Form frmSavedRecipes;
         public frmMain(string username)
         {
             InitializeComponent();
             authenticatedUser = username;
-            frmSavedRecipes = new Form();
+       
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -30,8 +29,9 @@ namespace RecipeManager
 
         private void btnSavedRecipes_Click(object sender, EventArgs e)
         {
-            //SavedRecipesForm frmSavedRecipes = new frmSavedRecipes();
-            frmSavedRecipes.Show();
+            frmSavedRecipes savedRecipesForm;
+            savedRecipesForm = new frmSavedRecipes();
+            savedRecipesForm.ShowDialog();
         }
     }
 }
