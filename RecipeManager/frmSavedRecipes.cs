@@ -38,9 +38,10 @@ namespace RecipeManager
         }
         private List<string> GetSavedRecipes()
         {
+            return null;
            // List<string>savedRecipes = new List<string>();
            //using (SqlConnection connection = new SqlConnection(""));
         }
-        }
+        
     }
 }

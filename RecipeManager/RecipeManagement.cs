@@ -5,10 +5,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Principal;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RecipeManager
 {
-    class RecipeManagement
+    public class RecipeManagement
     {
         private List<Recipe> recipes;
         private string recConnectString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=../../Data/Recipes.accdb;";
@@ -25,98 +27,83 @@ namespace RecipeManager
         public RecipeManagement()
         {
             recipes = new List<Recipe>();
-            LoadAccounts();
+            LoadRecipes();
         }
-        private void LoadAccounts()
+        private void LoadRecipes()
         {
             recConnection = new OleDbConnection(recConnectString);
-
-            queryString = "SELECT * FROM AccountInformation";
-            // Create a new OleDbCommand with the specified query and connection
+            queryString = "SELECT * FROM Recipes";
             recCommand = new OleDbCommand(queryString, recConnection);
             recDataAdapter = new OleDbDataAdapter(recCommand);
-            // Create a new DataSet named "RecipesTable" and fill it with data from the database
             recDataSet = new DataSet("RecipesTable");
-            //load data into the DataTable of a DataSet.
             recDataAdapter.Fill(recDataSet, "RecipesTable");
             recTable = recDataSet.Tables["RecipesTable"];
             recipes.Clear();
-            foreach (DataRow row in recTable.Rows)
+            foreach (DataRow recipeRow in recTable.Rows)
             {
+                string ingredientsString = recipeRow["Ingredients"].ToString();
+                var recipeIngredients = ParseIngredientsFromString(ingredientsString);
                 recipes.Add(new Recipe(
-                    row["RecipeName"].ToString(),
-                    row["RecipeDescription"].ToString(),
-                    row["RecipeImageUrl"].ToString(),
-                    row["RecipeDirections"].ToString(),
-                    row["ServingSize"].ToString());
+                    recipeRow["RecipeName"].ToString(),
+                    recipeRow["RecipeDescription"].ToString(),
+                    recipeRow["RecipeImageUrl"].ToString(),
+                    recipeRow["RecipeDirections"].ToString(),
+                    Convert.ToInt32(recipeRow["ServingSize"]),
+                    recipeIngredients
+                ));
             }
         }
-        //public void AddAccount(Recipe account)
-        //{
-        //    recConnection = new OleDbConnection(recConnectString);
-        //    queryString = "INSERT INTO AccountInformation (FirstName, LastName, UserName, [Password]) VALUES ('" + account.FirstName + "', '" + account.LastName + "', '" + account.UserName + "', '" + account.Password + "')";
-        //    recCommand = new OleDbCommand(queryString, recConnection);
-        //    recDataAdapter = new OleDbDataAdapter(recCommand);
-        //    //opening a database connection
-        //    recConnection.Open();
-        //    //used for executing SQL statements that do not return data, such as INSERT, UPDATE, DELETE
-        //    recCommand.ExecuteNonQuery();
-        //    recConnection.Close();
-        //}
-        //public void DeleteAccount(string userName)
-        //{
-        //    recConnection = new OleDbConnection(recConnectString);
-        //    queryString = "DELETE FROM AccountInformation WHERE UserName = '" + userName + "'";
-        //    recCommand = new OleDbCommand(queryString, recConnection);
-        //    recConnection.Open();
-        //    recCommand.ExecuteNonQuery();
-        //    recConnection.Close();
-        //    LoadAccounts();
-        //}
-        //public void UpdateAccount(Recipe account)
-        //{
-        //    recConnection = new OleDbConnection(recConnectString);
-        //    queryString = "UPDATE AccountInformation SET FirstName = '" + account.FirstName + "', LastName = '" + account.LastName + "', [Password] = '" + account.Password + "' WHERE UserName = '" + account.UserName + "'";
-        //    recCommand = new OleDbCommand(queryString, recConnection);
-        //    recConnection.Open();
-        //    recCommand.ExecuteNonQuery();
-        //    recConnection.Close();
-        //    LoadAccounts();
-        //}
-        //public Recipe GetAccountByUsername(string userName)
-        //{
-        //    recConnection = new OleDbConnection(recConnectString);
-        //    queryString = "SELECT * FROM AccountInformation WHERE UserName = '" + userName + "'";
-        //    recCommand = new OleDbCommand(queryString, recConnection);
-        //    recConnection.Open();
-        //    recDataReader = recCommand.ExecuteReader();
-        //    Recipe searchedAccount = null;
-        //    if (recDataReader.Read())
-        //    {
-        //        searchedAccount = new Recipe(
-        //            recDataReader["FirstName"].ToString(),
-        //            recDataReader["LastName"].ToString(),
-        //            recDataReader["UserName"].ToString(),
-        //            recDataReader["Password"].ToString());
-        //    }
+        private List<Ingredients> ParseIngredientsFromString(string ingredientsString)
+        {
+            var ingredientsList = new List<Ingredients>();
+            string[] ingredientsArray = ingredientsString.Split('|');
+            foreach (var ingredient in ingredientsArray)
+            {
+                if (!string.IsNullOrWhiteSpace(ingredient))
+                {
+                    string[] details = ingredient.Trim(new char[] { '(', ')' }).Split(':');
+                    string name = details[0].Trim();
+                    string[] values = details[1].Trim().Split(',');
+                    bool isAllergen = Convert.ToBoolean(values[5].Split('=')[1]);
+                    ingredientsList.Add(new Ingredients(name,isAllergen,Convert.ToInt32(values[0].Split('=')[1]),Convert.ToInt32(values[1].Split('=')[1]),
+                        Convert.ToInt32(values[2].Split('=')[1]),
+                        Convert.ToInt32(values[3].Split('=')[1]),
+                        Convert.ToInt32(values[4].Split('=')[1])
+                    ));
+                }
+            }
+            return ingredientsList;
+        }
+        private string ConvertIngredientsListToString(List<Ingredients> ingredientsList)
+        {
+            var ingredientsString = new StringBuilder();
+            foreach (var ingredient in ingredientsList)
+            {
+                ingredientsString.Append($"(Ingredient: {ingredient.IngredientName}|Calories={ingredient.IngredientCaloriesPerUnit}|Fat={ingredient.IngredientFatPerUnit}|Carbs={ingredient.IngredientCarbsPerUnit}|Protein={ingredient.IngredientProteinPerUnit}|Cholesterol={ingredient.IngredientCholesterolPerUnit}|Allergen={ingredient.IsAllergen}) x {ingredient.IngredientQuantity} | ");
+            }
+            return ingredientsString.ToString().TrimEnd(' ', '|');
+        }
+        public void AddRecipe(Recipe recipe)
+        {
+            recConnection = new OleDbConnection(recConnectString);
+            queryString = "INSERT INTO Recipes (RecipeName, RecipeDescription, RecipeImageUrl, RecipeDirections, ServingSize, Ingredients) VALUES ('" + recipe.RecipeName+ "', '" + recipe.RecipeDescription + "', '" + recipe.RecipeImageUrl + "', '" + recipe.RecipeDirections + "', '" + recipe.ServingSize + "', '" + ConvertIngredientsListToString(recipe.Ingredients) + "')";
+            recCommand = new OleDbCommand(queryString, recConnection);
+            //recDataAdapter = new OleDbDataAdapter(recCommand);
+            recConnection.Open();
+            recCommand.ExecuteNonQuery();
+            recConnection.Close();
+        }
 
-        //    recDataReader.Close();
-        //    recConnection.Close();
-
-        //    return searchedAccount;
-        //}
-        //public bool Authenticate(string username, string password)
-        //{
-        //    Recipe accountToCheck = GetAccountByUsername(username);
-        //    if (accountToCheck.Password == password)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-
-        //}
+        public void DeleteRecipe(int recipeId)
+        {
+            recConnection = new OleDbConnection(recConnectString);
+            // Start with deleting the ingredients for the recipe to maintain referential integrity
+            queryString = "DELETE FROM Recipes WHERE RecipeID = '" + recipeId + "'";
+            recCommand = new OleDbCommand(queryString, recConnection);
+            recConnection.Open();
+            recCommand.ExecuteNonQuery();
+            recConnection.Close();
+            LoadRecipes(); // Reload the recipes list
+        }
     }
 }

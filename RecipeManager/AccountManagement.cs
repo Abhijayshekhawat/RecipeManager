@@ -9,7 +9,7 @@ using System.IO;
 
 namespace RecipeManager
 {
-    class AccountManagement
+    public class AccountManagement
     {
         private List<Account> accounts;
         private string accConnectString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=../../Data/Accounts.accdb;";

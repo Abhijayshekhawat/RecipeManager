@@ -140,7 +140,13 @@
     <Content Include="Data\Recipes.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\account.png" />
     <Content Include="Images\create.jpeg" />
+    <Content Include="Images\createRecipe.png" />
+    <Content Include="Images\mealPlan.png" />
+    <Content Include="Images\noImage.jpg" />
+    <Content Include="Images\savedRecipes.png" />
+    <Content Include="Images\searchRecipe.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

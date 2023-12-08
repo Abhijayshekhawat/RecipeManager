@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace RecipeManager
 {
-    class Ingredients
+    public class Ingredients
     {
         private string ingredientName;
         private int ingredientQuantity;
         private bool isAllergen;
-        private int ingredientCaloriesPerUnit;
-        private int ingredientFatPerUnit;
-        private int ingredientCarbsPerUnit;
-        private int ingredientProteinPerUnit;
-        private int ingredientCholesterolPerUnit;   
+        private double ingredientCaloriesPerUnit;
+        private double ingredientFatPerUnit;
+        private double ingredientCarbsPerUnit;
+        private double ingredientProteinPerUnit;
+        private double ingredientCholesterolPerUnit;   
 
-        public Ingredients(string name, bool allergen, int caloriesPerUnit, int fatPerUnit, int carbsPerUnit, int proteinPerUnit, int cholesterolPerUnit)
+        public Ingredients(string name, bool allergen, double caloriesPerUnit, double fatPerUnit, double carbsPerUnit, double proteinPerUnit, double cholesterolPerUnit)
         {
             ingredientName = name;
             isAllergen = allergen;
@@ -32,11 +32,11 @@ namespace RecipeManager
         public string IngredientName { get { return ingredientName; } set { ingredientName = value; } }
         public int IngredientQuantity { get { return ingredientQuantity; } set { ingredientQuantity = value; } }
         public bool IsAllergen { get { return isAllergen; } set { isAllergen = value; } }
-        public int IngredientCaloriesPerUnit { get { return ingredientCaloriesPerUnit; } set { ingredientCaloriesPerUnit = value; } }
-        public int IngredientFatPerUnit { get { return ingredientFatPerUnit; } set { ingredientFatPerUnit = value; } }
-        public int IngredientCarbsPerUnit { get { return ingredientCarbsPerUnit; } set { ingredientCarbsPerUnit = value; } }
-        public int IngredientProteinPerUnit { get { return ingredientProteinPerUnit; } set { ingredientProteinPerUnit = value; } }
-        public int IngredientCholesterolPerUnit { get { return ingredientCholesterolPerUnit; } set { ingredientCholesterolPerUnit = value; } }
+        public double IngredientCaloriesPerUnit { get { return ingredientCaloriesPerUnit; } set { ingredientCaloriesPerUnit = value; } }
+        public double IngredientFatPerUnit { get { return ingredientFatPerUnit; } set { ingredientFatPerUnit = value; } }
+        public double IngredientCarbsPerUnit { get { return ingredientCarbsPerUnit; } set { ingredientCarbsPerUnit = value; } }
+        public double IngredientProteinPerUnit { get { return ingredientProteinPerUnit; } set { ingredientProteinPerUnit = value; } }
+        public double IngredientCholesterolPerUnit { get { return ingredientCholesterolPerUnit; } set { ingredientCholesterolPerUnit = value; } }
     }
 }
 

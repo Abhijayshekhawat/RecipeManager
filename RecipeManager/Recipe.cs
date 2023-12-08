@@ -41,9 +41,16 @@ namespace RecipeManager
         {
             get { return recipeDirections; }
         }
-        public int SeringSize
+        public int ServingSize
         {
             get { return servingSize; }
+        }
+        public List<Ingredients> Ingredients
+        {
+            get
+            {
+                return ingredients;
+            }
         }
         public List<Ingredients> Allergens
         {
@@ -59,11 +66,11 @@ namespace RecipeManager
                 return allergens;
             }
         }
-        public int CaloriesPerServing
+        public double CaloriesPerServing
         {
             get
             {
-                int totalCalories=0;
+                double totalCalories =0;
                 foreach (var ingredient in ingredients)
                 {
                     totalCalories += ingredient.IngredientCaloriesPerUnit;
@@ -71,11 +78,11 @@ namespace RecipeManager
                 return totalCalories / servingSize;
             }
         }
-        public int FatPerServing
+        public double FatPerServing
         {
             get
             {
-                int totalFat = 0;
+                double totalFat = 0;
                 foreach (var ingredient in ingredients)
                 {
                     totalFat += ingredient.IngredientFatPerUnit;
@@ -83,11 +90,11 @@ namespace RecipeManager
                 return totalFat / servingSize;
             }
         }
-        public int CarbsPerServing
+        public double CarbsPerServing
         {
             get
             {
-                int totalCarbs = 0;
+                double totalCarbs = 0;
                 foreach (var ingredient in ingredients)
                 {
                     totalCarbs += ingredient.IngredientCarbsPerUnit;
@@ -95,11 +102,11 @@ namespace RecipeManager
                 return totalCarbs / servingSize;
             }
         }
-        public int ProteinPerServing
+        public double ProteinPerServing
         {
             get
             {
-                int totalProtein = 0;
+                double totalProtein = 0;
                 foreach (var ingredient in ingredients)
                 {
                     totalProtein += ingredient.IngredientProteinPerUnit;
@@ -107,11 +114,11 @@ namespace RecipeManager
                 return totalProtein / servingSize;
             }
         }
-        public int CholesterolPerServing
+        public double CholesterolPerServing
         {
             get
             {
-                int totalCholesterol = 0;
+                double totalCholesterol = 0;
                 foreach (var ingredient in ingredients)
                 {
                     totalCholesterol += ingredient.IngredientCholesterolPerUnit;
@@ -126,4 +133,4 @@ namespace RecipeManager
 
 
 
-}
+
