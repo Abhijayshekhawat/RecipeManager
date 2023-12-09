@@ -45,6 +45,7 @@
             // 
             this.lblAccountInformation.AutoSize = true;
             this.lblAccountInformation.Font = new System.Drawing.Font("French Script MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccountInformation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblAccountInformation.Location = new System.Drawing.Point(39, 66);
             this.lblAccountInformation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAccountInformation.Name = "lblAccountInformation";
@@ -101,6 +102,7 @@
             // 
             this.lblMainTitle.AutoSize = true;
             this.lblMainTitle.Font = new System.Drawing.Font("French Script MT", 35F);
+            this.lblMainTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblMainTitle.Location = new System.Drawing.Point(142, 9);
             this.lblMainTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMainTitle.Name = "lblMainTitle";
@@ -110,18 +112,21 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSearch.Location = new System.Drawing.Point(283, 70);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(215, 23);
+            this.btnSearch.Size = new System.Drawing.Size(215, 27);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "Search for Recipes";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(543, 627);
             this.Controls.Add(this.pBoxSavedRecipe);
             this.Controls.Add(this.lblAccountInformation);

@@ -63,8 +63,8 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnExit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnExit.Location = new System.Drawing.Point(1130, 340);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(71, 31);
@@ -76,8 +76,8 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnClear.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnClear.Location = new System.Drawing.Point(1049, 340);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 31);
@@ -89,8 +89,8 @@
             // btnAddIngredient
             // 
             this.btnAddIngredient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            this.btnAddIngredient.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddIngredient.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnAddIngredient.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnAddIngredient.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnAddIngredient.Location = new System.Drawing.Point(632, 340);
             this.btnAddIngredient.Name = "btnAddIngredient";
             this.btnAddIngredient.Size = new System.Drawing.Size(157, 30);
@@ -102,8 +102,8 @@
             // btnSaveItem
             // 
             this.btnSaveItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            this.btnSaveItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveItem.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnSaveItem.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnSaveItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnSaveItem.Location = new System.Drawing.Point(960, 341);
             this.btnSaveItem.Name = "btnSaveItem";
             this.btnSaveItem.Size = new System.Drawing.Size(83, 30);
@@ -115,7 +115,7 @@
             // lblImageSDescription
             // 
             this.lblImageSDescription.AutoSize = true;
-            this.lblImageSDescription.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImageSDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblImageSDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblImageSDescription.Location = new System.Drawing.Point(308, 362);
             this.lblImageSDescription.Name = "lblImageSDescription";
@@ -126,7 +126,7 @@
             // lblDirectionDescription
             // 
             this.lblDirectionDescription.AutoSize = true;
-            this.lblDirectionDescription.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDirectionDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblDirectionDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblDirectionDescription.Location = new System.Drawing.Point(308, 108);
             this.lblDirectionDescription.Name = "lblDirectionDescription";
@@ -137,7 +137,7 @@
             // lblServSizeDescription
             // 
             this.lblServSizeDescription.AutoSize = true;
-            this.lblServSizeDescription.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServSizeDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblServSizeDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblServSizeDescription.Location = new System.Drawing.Point(40, 362);
             this.lblServSizeDescription.Name = "lblServSizeDescription";
@@ -148,7 +148,7 @@
             // lblDescDescription
             // 
             this.lblDescDescription.AutoSize = true;
-            this.lblDescDescription.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblDescDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblDescDescription.Location = new System.Drawing.Point(40, 187);
             this.lblDescDescription.Name = "lblDescDescription";
@@ -159,7 +159,7 @@
             // lblNameDescription
             // 
             this.lblNameDescription.AutoSize = true;
-            this.lblNameDescription.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblNameDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblNameDescription.Location = new System.Drawing.Point(40, 108);
             this.lblNameDescription.Name = "lblNameDescription";
@@ -170,8 +170,8 @@
             // txtDescription
             // 
             this.txtDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtDescription.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtDescription.Location = new System.Drawing.Point(44, 218);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
@@ -181,8 +181,8 @@
             // txtImageString
             // 
             this.txtImageString.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            this.txtImageString.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImageString.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.txtImageString.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtImageString.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtImageString.Location = new System.Drawing.Point(417, 325);
             this.txtImageString.Name = "txtImageString";
             this.txtImageString.Size = new System.Drawing.Size(100, 25);
@@ -192,8 +192,8 @@
             // txtDirections
             // 
             this.txtDirections.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            this.txtDirections.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDirections.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.txtDirections.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtDirections.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtDirections.Location = new System.Drawing.Point(312, 140);
             this.txtDirections.Multiline = true;
             this.txtDirections.Name = "txtDirections";
@@ -203,8 +203,8 @@
             // txtServingSize
             // 
             this.txtServingSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            this.txtServingSize.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtServingSize.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.txtServingSize.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtServingSize.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtServingSize.Location = new System.Drawing.Point(149, 327);
             this.txtServingSize.Name = "txtServingSize";
             this.txtServingSize.Size = new System.Drawing.Size(118, 25);
@@ -213,7 +213,7 @@
             // lblImageString
             // 
             this.lblImageString.AutoSize = true;
-            this.lblImageString.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImageString.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblImageString.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblImageString.Location = new System.Drawing.Point(308, 326);
             this.lblImageString.Name = "lblImageString";
@@ -224,7 +224,7 @@
             // lblDirections
             // 
             this.lblDirections.AutoSize = true;
-            this.lblDirections.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDirections.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblDirections.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblDirections.Location = new System.Drawing.Point(308, 86);
             this.lblDirections.Name = "lblDirections";
@@ -235,7 +235,7 @@
             // lblServingSize
             // 
             this.lblServingSize.AutoSize = true;
-            this.lblServingSize.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServingSize.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblServingSize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblServingSize.Location = new System.Drawing.Point(40, 328);
             this.lblServingSize.Name = "lblServingSize";
@@ -246,7 +246,7 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblDescription.Location = new System.Drawing.Point(40, 159);
             this.lblDescription.Name = "lblDescription";
@@ -257,7 +257,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblName.Location = new System.Drawing.Point(40, 86);
             this.lblName.Name = "lblName";
@@ -279,8 +279,8 @@
             // txtName
             // 
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            this.txtName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtName.Location = new System.Drawing.Point(94, 83);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(177, 25);
@@ -289,8 +289,8 @@
             // txtQuantity
             // 
             this.txtQuantity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtQuantity.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtQuantity.Location = new System.Drawing.Point(841, 113);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(101, 25);
@@ -299,8 +299,8 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnAdd.Location = new System.Drawing.Point(818, 340);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 30);
@@ -312,8 +312,8 @@
             // cmbAdd
             // 
             this.cmbAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            this.cmbAdd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbAdd.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.cmbAdd.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmbAdd.FormattingEnabled = true;
             this.cmbAdd.Location = new System.Drawing.Point(581, 113);
             this.cmbAdd.Name = "cmbAdd";
@@ -323,7 +323,7 @@
             // lblSearchIngredients
             // 
             this.lblSearchIngredients.AutoSize = true;
-            this.lblSearchIngredients.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchIngredients.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblSearchIngredients.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblSearchIngredients.Location = new System.Drawing.Point(577, 83);
             this.lblSearchIngredients.Name = "lblSearchIngredients";
@@ -334,7 +334,7 @@
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
             this.lblQuantity.Location = new System.Drawing.Point(837, 83);
             this.lblQuantity.Name = "lblQuantity";
@@ -357,8 +357,8 @@
             this.lvIngredients.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ingredientName,
             this.ingredientQuantity});
-            this.lvIngredients.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvIngredients.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lvIngredients.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lvIngredients.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lvIngredients.FullRowSelect = true;
             this.lvIngredients.GridLines = true;
             this.lvIngredients.HideSelection = false;
