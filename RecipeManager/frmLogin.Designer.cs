@@ -40,92 +40,101 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(383, 203);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtUsername.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtUsername.Location = new System.Drawing.Point(322, 182);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(203, 22);
+            this.txtUsername.Size = new System.Drawing.Size(153, 25);
             this.txtUsername.TabIndex = 0;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(383, 249);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtPassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtPassword.Location = new System.Drawing.Point(322, 220);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(203, 22);
+            this.txtPassword.Size = new System.Drawing.Size(153, 25);
             this.txtPassword.TabIndex = 1;
             // 
             // bttnLogin
             // 
-            this.bttnLogin.Location = new System.Drawing.Point(356, 345);
-            this.bttnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bttnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
+            this.bttnLogin.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.bttnLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.bttnLogin.Location = new System.Drawing.Point(267, 295);
             this.bttnLogin.Name = "bttnLogin";
-            this.bttnLogin.Size = new System.Drawing.Size(277, 38);
+            this.bttnLogin.Size = new System.Drawing.Size(208, 31);
             this.bttnLogin.TabIndex = 2;
             this.bttnLogin.Text = "Login";
-            this.bttnLogin.UseVisualStyleBackColor = true;
+            this.bttnLogin.UseVisualStyleBackColor = false;
             this.bttnLogin.Click += new System.EventHandler(this.bttnLogin_Click);
             // 
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
-            this.lblUserName.Location = new System.Drawing.Point(301, 207);
-            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserName.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
+            this.lblUserName.Location = new System.Drawing.Point(245, 182);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(70, 16);
+            this.lblUserName.Size = new System.Drawing.Size(71, 19);
             this.lblUserName.TabIndex = 3;
             this.lblUserName.Text = "Username";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(304, 257);
-            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
+            this.lblPassword.Location = new System.Drawing.Point(247, 223);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(67, 16);
+            this.lblPassword.Size = new System.Drawing.Size(67, 19);
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password";
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Franklin Gothic Medium", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblTitle.Location = new System.Drawing.Point(161, 75);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Font = new System.Drawing.Font("French Script MT", 35F);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
+            this.lblTitle.Location = new System.Drawing.Point(121, 61);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(637, 47);
+            this.lblTitle.Size = new System.Drawing.Size(517, 53);
             this.lblTitle.TabIndex = 5;
             this.lblTitle.Text = "Welcome to Recipe Manager App!";
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(301, 133);
-            this.lblDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
+            this.lblDescription.Location = new System.Drawing.Point(175, 124);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(431, 17);
+            this.lblDescription.Size = new System.Drawing.Size(418, 19);
             this.lblDescription.TabIndex = 6;
             this.lblDescription.Text = "Enter username and password below to enter Recipe Manager App";
             // 
             // bttnCreate
             // 
-            this.bttnCreate.Location = new System.Drawing.Point(356, 420);
-            this.bttnCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bttnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
+            this.bttnCreate.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.bttnCreate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.bttnCreate.Location = new System.Drawing.Point(267, 341);
             this.bttnCreate.Name = "bttnCreate";
-            this.bttnCreate.Size = new System.Drawing.Size(277, 38);
+            this.bttnCreate.Size = new System.Drawing.Size(208, 31);
             this.bttnCreate.TabIndex = 7;
             this.bttnCreate.Text = "Create an Account";
-            this.bttnCreate.UseVisualStyleBackColor = true;
+            this.bttnCreate.UseVisualStyleBackColor = false;
             this.bttnCreate.Click += new System.EventHandler(this.bttnCreate_Click);
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.bttnCreate);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblTitle);
@@ -134,7 +143,6 @@
             this.Controls.Add(this.bttnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmLogin";
             this.Text = "Login Form";
             this.ResumeLayout(false);
