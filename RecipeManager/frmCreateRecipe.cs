@@ -19,16 +19,13 @@ namespace RecipeManager
         {
             InitializeComponent();
             authenticatedUser = username;
-
         }
-
         private void btnAddIngredient_Click(object sender, EventArgs e)
         {
             frmAddIngredient addAnIngredient = new frmAddIngredient();
             addAnIngredient.Owner = this;
             addAnIngredient.ShowDialog();
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string selectedIngredientName = cmbAdd.SelectedItem.ToString();
@@ -41,7 +38,6 @@ namespace RecipeManager
             listViewItem.SubItems.Add(ingredient.IngredientQuantity.ToString());
             lvIngredients.Items.Add(listViewItem);
         }
-
         private void btnSaveItem_Click(object sender, EventArgs e)
         {
             RecipeManagement rm = new RecipeManagement();
@@ -50,7 +46,6 @@ namespace RecipeManager
             rm.AddRecipe(r);
             MessageBox.Show("Item Saved!");
         }
-
         private void frmCreateRecipe_Load(object sender, EventArgs e)
         {
             IngredientManagement ingMgmt = new IngredientManagement();
@@ -58,7 +53,6 @@ namespace RecipeManager
             cmbAdd.DataSource = ingredientNames;
             cmbAdd.SelectedIndex = -1;
         }
-
         private void txtImageString_TextChanged(object sender, EventArgs e)
         {
             if (Uri.IsWellFormedUriString(txtImageString.Text, UriKind.Absolute))
@@ -70,7 +64,6 @@ namespace RecipeManager
                 pbxImage.Image = null;
             }
         }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtName.Text = "";
@@ -81,9 +74,7 @@ namespace RecipeManager
             txtQuantity.Text = "";
             cmbAdd.SelectedIndex = -1;
             lvIngredients.Items.Clear();
-
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();

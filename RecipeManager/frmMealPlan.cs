@@ -25,7 +25,6 @@ namespace RecipeManager
             Dictionary<string, int> mealPlan = a.MealPlan;
             foreach (var entry in mealPlan)
             {
-                
             }
         }
     }

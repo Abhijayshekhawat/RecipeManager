@@ -21,12 +21,9 @@ namespace RecipeManager
         OleDbDataAdapter recDataAdapter;
         OleDbCommand recCommand;
         OleDbDataReader recDataReader;
-        //The data retrieved from a database and utilized by your program is stored in a DataSet
         DataSet recDataSet;
-        //The DataSet contains one or more DataTables
         DataTable recTable;
         string queryString;
-
         public RecipeManagement()
         {
             recipes = new List<Recipe>();
@@ -94,12 +91,10 @@ namespace RecipeManager
                 double protein = Convert.ToDouble(GetValueFromDetail(details[4]));
                 double cholesterol = Convert.ToDouble(GetValueFromDetail(details[5]));
                 bool isAllergen = Convert.ToBoolean(GetValueFromDetail(details[6]));
-
                 ingredientsList.Add(new Ingredients(name, isAllergen, calories, fat, carbs, protein, cholesterol));
             }
             return ingredientsList;
         }
-
         private string GetValueFromDetail(string detail)
         {
             return detail.Split('=')[1].Trim();
@@ -113,22 +108,19 @@ namespace RecipeManager
                 recipe.ServingSize + "', '" + recipe.CaloriesPerServing + "', '" + recipe.FatPerServing + "', '" + recipe.CarbsPerServing + "', '" + 
                 recipe.ProteinPerServing + "', '" + recipe.CholesterolPerServing + "', '" + ConvertIngredientsListToString(recipe.Ingredients) + "')";
             recCommand = new OleDbCommand(queryString, recConnection);
-            //recDataAdapter = new OleDbDataAdapter(recCommand);
             recConnection.Open();
             recCommand.ExecuteNonQuery();
             recConnection.Close();
         }
-
         public void DeleteRecipe(int recipeId)
         {
             recConnection = new OleDbConnection(recConnectString);
-            // Start with deleting the ingredients for the recipe to maintain referential integrity
             queryString = "DELETE FROM Recipes WHERE RecipeID = '" + recipeId + "'";
             recCommand = new OleDbCommand(queryString, recConnection);
             recConnection.Open();
             recCommand.ExecuteNonQuery();
             recConnection.Close();
-            LoadRecipes(); // Reload the recipes list
+            LoadRecipes();
         }
         public List<Recipe> FilterRecipes(string searchName, bool isAllergyFree, bool isLowCholesterol, bool isHighProtein, bool isLowFat)
         {

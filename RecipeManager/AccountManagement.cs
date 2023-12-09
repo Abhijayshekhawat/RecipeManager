@@ -19,9 +19,7 @@ namespace RecipeManager
         OleDbDataAdapter accDataAdapter;
         OleDbCommand accCommand;
         OleDbDataReader accDataReader;
-        //The data retrieved from a database and utilized by your program is stored in a DataSet
         DataSet accDataSet;
-        //The DataSet contains one or more DataTables
         DataTable accTable;
         string queryString;
 
@@ -33,14 +31,10 @@ namespace RecipeManager
         private void LoadAccounts()
         {
             accConecction = new OleDbConnection(accConnectString);
-
             queryString = "SELECT * FROM AccountInformation";
-            // Create a new OleDbCommand with the specified query and connection
             accCommand = new OleDbCommand(queryString, accConecction);
             accDataAdapter = new OleDbDataAdapter(accCommand);
-            // Create a new DataSet named "AccountsTable" and fill it with data from the database
             accDataSet = new DataSet("AccountsTable");
-            //load data into the DataTable of a DataSet.
             accDataAdapter.Fill(accDataSet, "AccountsTable");
             accTable = accDataSet.Tables["AccountsTable"];
             accounts.Clear();
@@ -61,9 +55,7 @@ namespace RecipeManager
                 queryString = "INSERT INTO AccountInformation (FirstName, LastName, UserName, [Password]) VALUES ('" + account.FirstName + "', '" + account.LastName + "', '" + account.UserName + "', '" + account.Password + "')";
                 accCommand = new OleDbCommand(queryString, accConecction);
                 accDataAdapter = new OleDbDataAdapter(accCommand);
-                //opening a database connection
                 accConecction.Open();
-                //used for executing SQL statements that do not return data, such as INSERT, UPDATE, DELETE
                 accCommand.ExecuteNonQuery();
                 accConecction.Close();
                 return true;
@@ -129,7 +121,6 @@ namespace RecipeManager
                 var savedRecipes = accDataReader["SavedRecipes"].ToString();
                 searchedAccount.SavedRecipeIds = string.IsNullOrWhiteSpace(savedRecipes) ? new List<int>() : savedRecipes.Split(',').Select(int.Parse).ToList();
             }
-
             accDataReader.Close();
             accConecction.Close();
             return searchedAccount;
@@ -145,7 +136,6 @@ namespace RecipeManager
             {
                 return false;
             }
-
         }
         public bool SaveRecipe(int recipeID, string userName)
         {

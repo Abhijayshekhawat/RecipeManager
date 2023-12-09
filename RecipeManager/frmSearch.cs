@@ -18,7 +18,6 @@ namespace RecipeManager
             InitializeComponent();
             authenticatedUser = username;
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             var isAllergyFree = chkAllergy.Checked;
@@ -36,58 +35,43 @@ namespace RecipeManager
             pnlRecipes.Controls.Add(lblResults);
             foreach (var recipe in filteredRecipes)
             {
-                // Create a new panel for each recipe
                 Panel recipePanel = new Panel();
                 recipePanel.Width = pnlRecipes.Width - 30;
-                recipePanel.Height = 100; // Set the desired height
+                recipePanel.Height = 100;
                 recipePanel.BorderStyle = BorderStyle.FixedSingle;
-
-                // Create a PictureBox
                 PictureBox pictureBox = new PictureBox();
-                pictureBox.Width = 100; // Set the desired width
-                pictureBox.Height = 100; // Set the desired height
+                pictureBox.Width = 100;
+                pictureBox.Height = 100;
                 pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                pictureBox.LoadAsync(recipe.RecipeImageUrl); // Load the image from the URL
-
-                // Create labels for the recipe details
+                pictureBox.LoadAsync(recipe.RecipeImageUrl);
                 Label lblName = new Label();
                 lblName.Text = "Name: " + recipe.RecipeName;
                 lblName.AutoSize = true;
-
                 Label lblDescription = new Label();
                 lblDescription.Text = "Description: " + recipe.RecipeDescription;
                 lblDescription.AutoSize = true;
-
                 Label lblAllergens = new Label();
                 lblAllergens.Text = "Allergens: " + (recipe.Allergens.Any() ? string.Join(", ", recipe.Allergens.Select(a => a.IngredientName)) : "No allergens");
                 lblAllergens.AutoSize = true;
-
                 Label lblCalories = new Label();
                 lblCalories.Text = "Calories: " + recipe.CaloriesPerServing.ToString("F2");
                 lblCalories.AutoSize = true;
-
                 Button btnAdd = new Button();
                 btnAdd.Text = "Add";
-                btnAdd.AutoSize = true; // Adjust location as needed
-                btnAdd.Tag = recipe.RecipeName; // Store the recipe ID in the Tag property
+                btnAdd.AutoSize = true;
+                btnAdd.Tag = recipe.RecipeName;
                 btnAdd.Click += new EventHandler(this.btnAdd_Click);
-
-                // Add the controls to the recipePanel
                 recipePanel.Controls.Add(pictureBox);
                 recipePanel.Controls.Add(lblName);
                 recipePanel.Controls.Add(lblDescription);
                 recipePanel.Controls.Add(lblAllergens);
                 recipePanel.Controls.Add(lblCalories);
                 recipePanel.Controls.Add(btnAdd);
-
-                // Adjust the location of the labels based on your layout preference
                 lblName.Location = new Point(pictureBox.Width + 5, 10);
                 lblDescription.Location = new Point(pictureBox.Width + 5, 30);
                 lblAllergens.Location = new Point(pictureBox.Width + 5, 50);
                 lblCalories.Location = new Point(pictureBox.Width + 5, 70);
-                btnAdd.Location = new Point(pictureBox.Width + 500, 35); // Adjust location as needed
-
-                // Add the recipePanel to the FlowLayoutPanel
+                btnAdd.Location = new Point(pictureBox.Width + 500, 35);
                 pnlRecipes.Controls.Add(recipePanel);
             }
         }
@@ -118,58 +102,43 @@ namespace RecipeManager
             pnlRecipes.Controls.Add(lblResults);
             foreach (var recipe in allRec)
             {
-                // Create a new panel for each recipe
                 Panel recipePanel = new Panel();
                 recipePanel.Width = pnlRecipes.Width-30;
-                recipePanel.Height = 100; // Set the desired height
+                recipePanel.Height = 100;
                 recipePanel.BorderStyle = BorderStyle.FixedSingle;
-
-                // Create a PictureBox
                 PictureBox pictureBox = new PictureBox();
-                pictureBox.Width = 100; // Set the desired width
-                pictureBox.Height = 100; // Set the desired height
+                pictureBox.Width = 100;
+                pictureBox.Height = 100;
                 pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                pictureBox.LoadAsync(recipe.RecipeImageUrl); // Load the image from the URL
-
-                // Create labels for the recipe details
+                pictureBox.LoadAsync(recipe.RecipeImageUrl);
                 Label lblName = new Label();
                 lblName.Text = "Name: " + recipe.RecipeName;
                 lblName.AutoSize = true;
-
                 Label lblDescription = new Label();
                 lblDescription.Text = "Description: " + recipe.RecipeDescription;
                 lblDescription.AutoSize = true;
-
                 Label lblAllergens = new Label();
                 lblAllergens.Text = "Allergens: " + (recipe.Allergens.Any() ? string.Join(", ", recipe.Allergens.Select(a => a.IngredientName)) : "No allergens");
                 lblAllergens.AutoSize = true;
-
                 Label lblCalories = new Label();
                 lblCalories.Text = "Calories: " + recipe.CaloriesPerServing.ToString("F2");
                 lblCalories.AutoSize = true;
-
                 Button btnAdd = new Button();
                 btnAdd.Text = "Add";
                 btnAdd.AutoSize = true;
-                btnAdd.Tag = recipe.RecipeName; // Store the recipe ID in the Tag property
+                btnAdd.Tag = recipe.RecipeName;
                 btnAdd.Click += new EventHandler(this.btnAdd_Click);
-                // Add the controls to the recipePanel
                 recipePanel.Controls.Add(pictureBox);
                 recipePanel.Controls.Add(lblName);
                 recipePanel.Controls.Add(lblDescription);
                 recipePanel.Controls.Add(lblAllergens);
                 recipePanel.Controls.Add(lblCalories);
                 recipePanel.Controls.Add(btnAdd);
-
-                // Adjust the location of the labels based on your layout preference
                 lblName.Location = new Point(pictureBox.Width + 5, 10);
                 lblDescription.Location = new Point(pictureBox.Width + 5, 30);
                 lblAllergens.Location = new Point(pictureBox.Width + 5, 50);
                 lblCalories.Location = new Point(pictureBox.Width + 5, 70);
-                btnAdd.Location = new Point(pictureBox.Width + 500, 35); // Adjust location as needed
-
-
-                // Add the recipePanel to the FlowLayoutPanel
+                btnAdd.Location = new Point(pictureBox.Width + 500, 35);
                 pnlRecipes.Controls.Add(recipePanel);
             }
         }

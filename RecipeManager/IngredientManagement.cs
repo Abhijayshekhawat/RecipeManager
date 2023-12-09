@@ -18,12 +18,9 @@ namespace RecipeManager
         OleDbDataAdapter ingDataAdapter;
         OleDbCommand ingCommand;
         OleDbDataReader ingDataReader;
-        //The data retrieved from a database and utilized by your program is stored in a DataSet
         DataSet ingDataSet;
-        //The DataSet contains one or more DataTables
         DataTable ingTable;
         string queryString;
-
         public IngredientManagement()
         {
             ingredients = new List<Ingredients>();
@@ -62,11 +59,9 @@ namespace RecipeManager
             ingCommand.ExecuteNonQuery();
             ingConnection.Close();
         }
-
         public void DeleteIngredient(string ingName)
         {
             ingConnection = new OleDbConnection(ingConnectString);
-            // Start with deleting the ingredients for the recipe to maintain referential integrity
             queryString = "DELETE FROM Ingredients WHERE IngredientName = '" + ingName + "'";
             ingCommand = new OleDbCommand(queryString, ingConnection);
             ingConnection.Open();
@@ -116,6 +111,5 @@ namespace RecipeManager
 
             return ingredientNames;
         }
-
     }
 }

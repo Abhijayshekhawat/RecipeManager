@@ -17,16 +17,13 @@ namespace RecipeManager
         {
             InitializeComponent();
             authenticatedUser = username;
-       
         }
-
         private void frmMain_Load(object sender, EventArgs e)
         {
             AccountManagement userManagement = new AccountManagement();
             string account = userManagement.GetAccountByUsername(authenticatedUser).FirstName.ToString();
             lblAccountInformation.Text = "Welcome " + account;
         }
-
         private void pBoxCreateRecipe_Click(object sender, EventArgs e)
         {
             frmCreateRecipe createRecipeForm = new frmCreateRecipe(authenticatedUser);
@@ -34,7 +31,6 @@ namespace RecipeManager
             createRecipeForm.ShowDialog();
             this.Show();
         }
-
         private void pBoxAccount_Click(object sender, EventArgs e)
         {
             frmAccount accountForm = new frmAccount(authenticatedUser);
@@ -42,7 +38,6 @@ namespace RecipeManager
             accountForm.ShowDialog();
             this.Show();
         }
-
         private void lblAccountInformation_Click(object sender, EventArgs e)
         {
             frmAccount accountForm = new frmAccount(authenticatedUser);
@@ -50,7 +45,6 @@ namespace RecipeManager
             accountForm.ShowDialog();
             this.Show();
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             frmSearch searchForm = new frmSearch(authenticatedUser);
@@ -58,7 +52,6 @@ namespace RecipeManager
             searchForm.ShowDialog();
             this.Show();
         }
-
         private void pBoxSavedRecipe_Click(object sender, EventArgs e)
         {
             frmSavedRecipes savedForm = new frmSavedRecipes(authenticatedUser);
@@ -66,7 +59,6 @@ namespace RecipeManager
             savedForm.ShowDialog();
             this.Show();
         }
-
         private void pBoxMealPlan_Click(object sender, EventArgs e)
         {
             frmMealPlan mealForm = new frmMealPlan(authenticatedUser);

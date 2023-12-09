@@ -68,6 +68,12 @@
     <Compile Include="frmCreateRecipe.Designer.cs">
       <DependentUpon>frmCreateRecipe.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHelp.Designer.cs">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>

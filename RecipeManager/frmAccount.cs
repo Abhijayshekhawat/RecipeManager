@@ -18,7 +18,6 @@ namespace RecipeManager
             InitializeComponent();
             authenticatedUser = username;
         }
-
         private void btnUpdateAccount_Click(object sender, EventArgs e)
         {
             string fN = txtFirstName.Text;
@@ -33,13 +32,11 @@ namespace RecipeManager
                 MessageBox.Show("Please fill in all fields.");
                 return;
             }
-
             if (pwd != confirmPwd)
             {
                 MessageBox.Show("Please ensure the passwords are the same.");
                 return;
             }
-
             try
             {
                 Account account = new Account(fN, lN, uN, pwd);
@@ -47,15 +44,12 @@ namespace RecipeManager
                 am.UpdateAccount(account);
                 MessageBox.Show("Account Updated");
                 this.Close();
-
-
             }
             catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void frmAccount_Load(object sender, EventArgs e)
         {
             AccountManagement am = new AccountManagement();

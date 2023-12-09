@@ -16,7 +16,6 @@ namespace RecipeManager
         private double ingredientCarbsPerUnit;
         private double ingredientProteinPerUnit;
         private double ingredientCholesterolPerUnit;   
-
         public Ingredients(string name, bool allergen, double caloriesPerUnit, double fatPerUnit, double carbsPerUnit, double proteinPerUnit, double cholesterolPerUnit)
         {
             ingredientName = name;
@@ -27,8 +26,6 @@ namespace RecipeManager
             ingredientProteinPerUnit = proteinPerUnit;
             ingredientCholesterolPerUnit = cholesterolPerUnit;
         }
-
-        // Properties
         public string IngredientName { get { return ingredientName; } set { ingredientName = value; } }
         public int IngredientQuantity { get { return ingredientQuantity; } set { ingredientQuantity = value; } }
         public bool IsAllergen { get { return isAllergen; } set { isAllergen = value; } }

@@ -16,7 +16,6 @@ namespace RecipeManager
         {
             InitializeComponent();
         }
-
         private void bttnLogin_Click(object sender, EventArgs e)
         {
             AccountManagement am = new AccountManagement();
