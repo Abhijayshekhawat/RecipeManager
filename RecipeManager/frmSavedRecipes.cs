@@ -32,6 +32,15 @@ namespace RecipeManager
                     savedRecipes.Add(recipe);
                 }
             }
+            Panel pnlRecipes = new Panel();
+            pnlRecipes.AutoScroll = true;
+            pnlRecipes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
+            pnlRecipes.Font = new System.Drawing.Font("Segoe UI", 10F);
+            pnlRecipes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            pnlRecipes.Location = new System.Drawing.Point(15, 71);
+            pnlRecipes.Name = "pnlRecipes";
+            pnlRecipes.Size = new System.Drawing.Size(771, 309);
+            pnlRecipes.TabIndex = 3;
             pnlRecipes.Controls.Clear();
             Label lblResults = new Label();
             lblResults.Text = "Results: " + savedRecipes.Count;
