@@ -29,9 +29,8 @@ namespace RecipeManager
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.FlowLayoutPanel pnlRecipes;
             this.lblSavedRecipes = new System.Windows.Forms.Label();
-            pnlRecipes = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlRecipes = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // lblSavedRecipes
@@ -47,14 +46,13 @@ namespace RecipeManager
             // 
             // pnlRecipes
             // 
-            pnlRecipes.AutoScroll = true;
-            pnlRecipes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
-            pnlRecipes.Font = new System.Drawing.Font("Segoe UI", 10F);
-            pnlRecipes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            pnlRecipes.Location = new System.Drawing.Point(15, 71);
-            pnlRecipes.Name = "pnlRecipes";
-            pnlRecipes.Size = new System.Drawing.Size(771, 309);
-            pnlRecipes.TabIndex = 3;
+            this.pnlRecipes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
+            this.pnlRecipes.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.pnlRecipes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pnlRecipes.Location = new System.Drawing.Point(17, 105);
+            this.pnlRecipes.Name = "pnlRecipes";
+            this.pnlRecipes.Size = new System.Drawing.Size(771, 309);
+            this.pnlRecipes.TabIndex = 2;
             // 
             // frmSavedRecipes
             // 
@@ -62,7 +60,7 @@ namespace RecipeManager
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(pnlRecipes);
+            this.Controls.Add(this.pnlRecipes);
             this.Controls.Add(this.lblSavedRecipes);
             this.Name = "frmSavedRecipes";
             this.Text = "frmSavedRecipes";
@@ -76,5 +74,6 @@ namespace RecipeManager
 
         private System.Windows.Forms.ListView lstViewSavedRecipes;
         private System.Windows.Forms.Label lblSavedRecipes;
+        private System.Windows.Forms.FlowLayoutPanel pnlRecipes;
     }
 }
