@@ -13,12 +13,37 @@ namespace RecipeManager
         private string userName;
         private string password;
         private List<int> savedRecipeIds = new List<int>();
+        Dictionary<string, int> mealPlan;
         public Account(string firstName, string lastName, string userName, string password)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.UserName = userName;
             this.Password = password;
+            mealPlan = new Dictionary<string, int>
+            {
+                {"Monday-Breakfast", -1 },
+                {"Monday-Lunch", -1 },
+                {"Monday-Dinner", -1 },
+                {"Tuesday-Breakfast", -1 },
+                {"Tuesday-Lunch", -1 },
+                {"Tuesday-Dinner", -1 },
+                {"Wednesday-Breakfast", -1 },
+                {"Wednesday-Lunch", -1 },
+                {"Wednesday-Dinner", -1 },
+                {"Thursday-Breakfast", -1 },
+                {"Thursday-Lunch", -1 },
+                {"Thursday-Dinner", -1 },
+                {"Friday-Breakfast", -1 },
+                {"Friday-Lunch", -1 },
+                {"Friday-Dinner", -1 },
+                {"Saturday-Breakfast", -1 },
+                {"Saturday-Lunch", -1 },
+                {"Saturday-Dinner", -1 },
+                {"Sunday-Breakfast", -1 },
+                {"Sunday-Lunch", -1 },
+                {"Sunday-Dinner", -1 }
+            };
         }
         public string FirstName {
             get {
@@ -76,6 +101,17 @@ namespace RecipeManager
             set
             {
                 savedRecipeIds = value;
+            }
+        }
+        public Dictionary<string, int> MealPlan
+        {
+            get
+            {
+                return mealPlan;
+            }
+            set
+            {
+                mealPlan = value;
             }
         }
     }

@@ -66,5 +66,13 @@ namespace RecipeManager
             savedForm.ShowDialog();
             this.Show();
         }
+
+        private void pBoxMealPlan_Click(object sender, EventArgs e)
+        {
+            frmMealPlan mealForm = new frmMealPlan(authenticatedUser);
+            this.Hide();
+            mealForm.ShowDialog();
+            this.Show();
+        }
     }
 }

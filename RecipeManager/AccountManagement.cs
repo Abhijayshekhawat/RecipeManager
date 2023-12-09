@@ -172,5 +172,22 @@ namespace RecipeManager
                 return false;
             }
         }
+        public void SaveMeal(string userName, string dayMealKey, int recipeID)
+        {
+            var account = GetAccountByUsername(userName);
+            if (account.MealPlan == null)
+            {
+                account.MealPlan = new Dictionary<string, int>();
+            }
+            account.SavedRecipeIds.Add(recipeID);
+                string mealPlanString = string.Join("|", account.MealPlan);
+                accConecction = new OleDbConnection(accConnectString);
+                queryString = "UPDATE AccountInformation SET MealPlan = '" + mealPlanString + "' WHERE UserName = '" + userName + "'";
+                accCommand = new OleDbCommand(queryString, accConecction);
+                accConecction.Open();
+                accCommand.ExecuteNonQuery();
+                accConecction.Close();
+                LoadAccounts();
+        }
     }
 }

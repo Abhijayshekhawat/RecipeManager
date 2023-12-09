@@ -86,6 +86,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMealPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMealPlan.Designer.cs">
+      <DependentUpon>frmMealPlan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSavedRecipes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMealPlan.resx">
+      <DependentUpon>frmMealPlan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSavedRecipes.resx">
       <DependentUpon>frmSavedRecipes.cs</DependentUpon>
@@ -164,6 +173,7 @@
     <Content Include="Images\Logo.png" />
     <Content Include="Images\mealPlan.png" />
     <Content Include="Images\noImage.jpg" />
+    <Content Include="Images\NoRecipe.png" />
     <Content Include="Images\savedRecipes.png" />
     <Content Include="Images\searchRecipe.png" />
   </ItemGroup>

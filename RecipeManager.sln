@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeManager", "RecipeManager\RecipeManager.csproj", "{06BAE3C3-7F4B-44A9-8520-8C2B44341ADE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeUnitTests", "RecipeUnitTests\RecipeUnitTests.csproj", "{0327B1F9-B42E-41B0-BE77-B56DD459EDA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{06BAE3C3-7F4B-44A9-8520-8C2B44341ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06BAE3C3-7F4B-44A9-8520-8C2B44341ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06BAE3C3-7F4B-44A9-8520-8C2B44341ADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0327B1F9-B42E-41B0-BE77-B56DD459EDA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0327B1F9-B42E-41B0-BE77-B56DD459EDA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0327B1F9-B42E-41B0-BE77-B56DD459EDA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0327B1F9-B42E-41B0-BE77-B56DD459EDA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

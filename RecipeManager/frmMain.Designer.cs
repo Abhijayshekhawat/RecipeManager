@@ -84,6 +84,7 @@
             this.pBoxMealPlan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pBoxMealPlan.TabIndex = 0;
             this.pBoxMealPlan.TabStop = false;
+            this.pBoxMealPlan.Click += new System.EventHandler(this.pBoxMealPlan_Click);
             // 
             // pBoxAccount
             // 
