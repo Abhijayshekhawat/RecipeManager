@@ -76,30 +76,28 @@ namespace RecipeManager
         private string connString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=../../Data/Recipes.accdb;";
         public Ingredients GetIngredientByName(string name)
         {
-            using (OleDbConnection conn = new OleDbConnection(connString))
+            ingConnection = new OleDbConnection(ingConnectString);
+            queryString = "SELECT * FROM Ingredients WHERE IngredientName = '" + name + "'";
+            ingCommand = new OleDbCommand(queryString, ingConnection);
+            ingConnection.Open();
+            ingDataReader = ingCommand.ExecuteReader();
+            Ingredients searchedIngredients = null;
+            if (ingDataReader.Read())
             {
-                string query = "SELECT * FROM Ingredients WHERE IngredientName = ?";
-                OleDbCommand cmd = new OleDbCommand(query, conn);
-                cmd.Parameters.AddWithValue("?", name);
+                searchedIngredients = new Ingredients(
+                    ingDataReader["IngredientName"].ToString(),
+                    bool.Parse(ingDataReader["IsAllergen"].ToString()),
+                    Convert.ToDouble(ingDataReader["IngredientCaloriesPerUnit"]),
+                    Convert.ToDouble(ingDataReader["IngredientFatPerUnit"]),
+                    Convert.ToDouble(ingDataReader["IngredientCarbsPerUnit"]),
+                    Convert.ToDouble(ingDataReader["IngredientProteinPerUnit"]),
+                    Convert.ToDouble(ingDataReader["IngredientCholesterolPerUnit"])
+                );
 
-                conn.Open();
-                using (OleDbDataReader reader = cmd.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        return new Ingredients(
-                            reader["IngredientName"].ToString(),
-                            (bool)reader["IsAllergen"],
-                            Convert.ToDouble(reader["IngredientCaloriesPerUnit"]),
-                            Convert.ToDouble(reader["IngredientFatPerUnit"]),
-                            Convert.ToDouble(reader["IngredientCarbsPerUnit"]),
-                            Convert.ToDouble(reader["IngredientProteinPerUnit"]),
-                            Convert.ToDouble(reader["IngredientCholesterolPerUnit"])
-                        );
-                    }
-                }
+                ingDataReader.Close();
+                ingConnection.Close();
             }
-            return null; // or handle the case where the ingredient is not found
+            return searchedIngredients;
         }
         public List<string> GetIngredientList()
         {

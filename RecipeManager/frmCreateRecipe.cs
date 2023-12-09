@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace RecipeManager
 {
@@ -47,6 +48,7 @@ namespace RecipeManager
             int servingSize = Convert.ToInt32(txtServingSize.Text);
             Recipe r = new Recipe(txtName.Text, txtDescription.Text, txtImageString.Text, txtDirections.Text, servingSize, ingredients);
             rm.AddRecipe(r);
+            MessageBox.Show("Item Saved!");
         }
 
         private void frmCreateRecipe_Load(object sender, EventArgs e)
@@ -54,6 +56,37 @@ namespace RecipeManager
             IngredientManagement ingMgmt = new IngredientManagement();
             List<string> ingredientNames = ingMgmt.GetIngredientList();
             cmbAdd.DataSource = ingredientNames;
+            cmbAdd.SelectedIndex = -1;
+        }
+
+        private void txtImageString_TextChanged(object sender, EventArgs e)
+        {
+            if (Uri.IsWellFormedUriString(txtImageString.Text, UriKind.Absolute))
+            {
+                pbxImage.Load(txtImageString.Text);
+            }
+            else
+            {
+                pbxImage.Image = null;
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtName.Text = "";
+            txtDescription.Text = "";
+            txtDirections.Text = "";
+            txtServingSize.Text = "";
+            txtImageString.Text = "";
+            txtQuantity.Text = "";
+            cmbAdd.SelectedIndex = -1;
+            lvIngredients.Items.Clear();
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

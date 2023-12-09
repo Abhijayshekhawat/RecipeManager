@@ -10,19 +10,16 @@ using System.Windows.Forms;
 
 namespace RecipeManager
 {
-    public partial class frmCreateAccount : Form
+    public partial class frmAccount : Form
     {
-        private frmLogin formOwner;
-
-        public frmCreateAccount()
+        private string authenticatedUser;
+        public frmAccount(string username)
         {
             InitializeComponent();
+            authenticatedUser = username;
         }
-        private void frmCreateAccount_Load(object sender, EventArgs e)
-        {
-            formOwner = (frmLogin)this.Owner;
-        }
-        private void btnCreateAccount_Click(object sender, EventArgs e)
+
+        private void btnUpdateAccount_Click(object sender, EventArgs e)
         {
             string fN = txtFirstName.Text;
             string lN = txtLastName.Text;
@@ -36,27 +33,36 @@ namespace RecipeManager
                 MessageBox.Show("Please fill in all fields.");
                 return;
             }
+
             if (pwd != confirmPwd)
             {
                 MessageBox.Show("Please ensure the passwords are the same.");
                 return;
             }
-            Account account = new Account(fN, lN, uN, pwd);
-            AccountManagement am = new AccountManagement();
-            if (am.AddAccount(account))
+
+            try
             {
-                string message = $"Account Created: \nUsername: {account.UserName}\nFirst Name: {account.FirstName}\nLast Name: {account.LastName}";
-                MessageBox.Show(message);
-            } else
-            {
-                MessageBox.Show("Account already exists");
+                Account account = new Account(fN, lN, uN, pwd);
+                AccountManagement am = new AccountManagement();
+                am.UpdateAccount(account);
+                MessageBox.Show("Account Updated");
+                this.Close();
+
+
             }
-            this.Close();
-        }
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        private void frmAccount_Load(object sender, EventArgs e)
+        {
+            AccountManagement am = new AccountManagement();
+            Account account = am.GetAccountByUsername(authenticatedUser);
+            txtFirstName.Text = account.FirstName;
+            txtLastName.Text = account.LastName;
+            txtUserName.Text = account.UserName;
+        }
     }
 }

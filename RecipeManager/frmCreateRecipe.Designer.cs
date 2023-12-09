@@ -48,13 +48,15 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblMenuItemTitle = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.lvIngredients = new System.Windows.Forms.ListView();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.cmbAdd = new System.Windows.Forms.ComboBox();
             this.lblSearchIngredients = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.pbxImage = new System.Windows.Forms.PictureBox();
+            this.lvIngredients = new System.Windows.Forms.ListView();
+            this.ingredientName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ingredientQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pbxImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +71,7 @@
             this.btnExit.TabIndex = 47;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnClear
             // 
@@ -81,6 +84,7 @@
             this.btnClear.TabIndex = 46;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnAddIngredient
             // 
@@ -91,7 +95,7 @@
             this.btnAddIngredient.Name = "btnAddIngredient";
             this.btnAddIngredient.Size = new System.Drawing.Size(157, 30);
             this.btnAddIngredient.TabIndex = 45;
-            this.btnAddIngredient.Text = "Add new Ingredient";
+            this.btnAddIngredient.Text = "Create new Ingredient";
             this.btnAddIngredient.UseVisualStyleBackColor = false;
             this.btnAddIngredient.Click += new System.EventHandler(this.btnAddIngredient_Click);
             // 
@@ -183,6 +187,7 @@
             this.txtImageString.Name = "txtImageString";
             this.txtImageString.Size = new System.Drawing.Size(100, 25);
             this.txtImageString.TabIndex = 35;
+            this.txtImageString.TextChanged += new System.EventHandler(this.txtImageString_TextChanged);
             // 
             // txtDirections
             // 
@@ -281,15 +286,6 @@
             this.txtName.Size = new System.Drawing.Size(177, 25);
             this.txtName.TabIndex = 48;
             // 
-            // lvIngredients
-            // 
-            this.lvIngredients.HideSelection = false;
-            this.lvIngredients.Location = new System.Drawing.Point(581, 144);
-            this.lvIngredients.Name = "lvIngredients";
-            this.lvIngredients.Size = new System.Drawing.Size(361, 178);
-            this.lvIngredients.TabIndex = 49;
-            this.lvIngredients.UseCompatibleStateImageBehavior = false;
-            // 
             // txtQuantity
             // 
             this.txtQuantity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
@@ -351,8 +347,37 @@
             this.pbxImage.Location = new System.Drawing.Point(960, 114);
             this.pbxImage.Name = "pbxImage";
             this.pbxImage.Size = new System.Drawing.Size(241, 208);
+            this.pbxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImage.TabIndex = 43;
             this.pbxImage.TabStop = false;
+            // 
+            // lvIngredients
+            // 
+            this.lvIngredients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))));
+            this.lvIngredients.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ingredientName,
+            this.ingredientQuantity});
+            this.lvIngredients.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvIngredients.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lvIngredients.FullRowSelect = true;
+            this.lvIngredients.GridLines = true;
+            this.lvIngredients.HideSelection = false;
+            this.lvIngredients.Location = new System.Drawing.Point(581, 144);
+            this.lvIngredients.Name = "lvIngredients";
+            this.lvIngredients.Size = new System.Drawing.Size(361, 178);
+            this.lvIngredients.TabIndex = 55;
+            this.lvIngredients.UseCompatibleStateImageBehavior = false;
+            this.lvIngredients.View = System.Windows.Forms.View.Details;
+            // 
+            // ingredientName
+            // 
+            this.ingredientName.Text = "Name";
+            this.ingredientName.Width = 237;
+            // 
+            // ingredientQuantity
+            // 
+            this.ingredientQuantity.Text = "Quantity";
+            this.ingredientQuantity.Width = 120;
             // 
             // frmCreateRecipe
             // 
@@ -365,7 +390,6 @@
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.cmbAdd);
-            this.Controls.Add(this.lvIngredients);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnClear);
@@ -387,6 +411,7 @@
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblMenuItemTitle);
+            this.Controls.Add(this.lvIngredients);
             this.Name = "frmCreateRecipe";
             this.Text = "frmCreateRecipe";
             this.Load += new System.EventHandler(this.frmCreateRecipe_Load);
@@ -419,11 +444,13 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblMenuItemTitle;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.ListView lvIngredients;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ComboBox cmbAdd;
         private System.Windows.Forms.Label lblSearchIngredients;
         private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.ListView lvIngredients;
+        private System.Windows.Forms.ColumnHeader ingredientName;
+        private System.Windows.Forms.ColumnHeader ingredientQuantity;
     }
 }

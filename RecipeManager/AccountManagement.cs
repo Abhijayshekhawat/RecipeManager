@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RecipeManager
 {
     public class AccountManagement
     {
         private List<Account> accounts;
+        private List<int> savedRecipes = new List<int>();
         private string accConnectString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=../../Data/Accounts.accdb;";
         OleDbConnection accConecction;
         OleDbDataAdapter accDataAdapter;
@@ -51,17 +53,43 @@ namespace RecipeManager
                     row["Password"].ToString()));
             }
         }
-        public void AddAccount(Account account)
+        public bool AddAccount(Account account)
+        {
+            if (uniqueUsername(account.UserName))
+            {
+                accConecction = new OleDbConnection(accConnectString);
+                queryString = "INSERT INTO AccountInformation (FirstName, LastName, UserName, [Password]) VALUES ('" + account.FirstName + "', '" + account.LastName + "', '" + account.UserName + "', '" + account.Password + "')";
+                accCommand = new OleDbCommand(queryString, accConecction);
+                accDataAdapter = new OleDbDataAdapter(accCommand);
+                //opening a database connection
+                accConecction.Open();
+                //used for executing SQL statements that do not return data, such as INSERT, UPDATE, DELETE
+                accCommand.ExecuteNonQuery();
+                accConecction.Close();
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+        public bool uniqueUsername(string userName)
         {
             accConecction = new OleDbConnection(accConnectString);
-            queryString = "INSERT INTO AccountInformation (FirstName, LastName, UserName, [Password]) VALUES ('" + account.FirstName + "', '" + account.LastName + "', '" + account.UserName + "', '" + account.Password + "')";
+            queryString = "SELECT * FROM AccountInformation WHERE UserName = '" + userName + "'";
             accCommand = new OleDbCommand(queryString, accConecction);
-            accDataAdapter = new OleDbDataAdapter(accCommand);
-            //opening a database connection
             accConecction.Open();
-            //used for executing SQL statements that do not return data, such as INSERT, UPDATE, DELETE
-            accCommand.ExecuteNonQuery();
-            accConecction.Close();
+            accDataReader = accCommand.ExecuteReader();
+            if (accDataReader.HasRows)
+            {
+                accDataReader.Close();
+                accConecction.Close();
+                return false;
+            } else
+            {
+                accDataReader.Close();
+                accConecction.Close();
+                return true;
+            }
         }
         public void DeleteAccount(string userName)
         {
@@ -86,7 +114,7 @@ namespace RecipeManager
         public Account GetAccountByUsername(string userName)
         {
             accConecction = new OleDbConnection(accConnectString);
-            queryString = "SELECT * FROM AccountInformation WHERE UserName = '" + userName + "'";
+            queryString = "SELECT *, SavedRecipes FROM AccountInformation WHERE UserName = '" + userName + "'";
             accCommand = new OleDbCommand(queryString, accConecction);
             accConecction.Open();
             accDataReader = accCommand.ExecuteReader();
@@ -98,11 +126,12 @@ namespace RecipeManager
                     accDataReader["LastName"].ToString(),
                     accDataReader["UserName"].ToString(),
                     accDataReader["Password"].ToString());
+                var savedRecipes = accDataReader["SavedRecipes"].ToString();
+                searchedAccount.SavedRecipeIds = string.IsNullOrWhiteSpace(savedRecipes) ? new List<int>() : savedRecipes.Split(',').Select(int.Parse).ToList();
             }
 
             accDataReader.Close();
             accConecction.Close();
-
             return searchedAccount;
         }
         public bool Authenticate(string username, string password)
@@ -117,6 +146,31 @@ namespace RecipeManager
                 return false;
             }
 
+        }
+        public bool SaveRecipe(int recipeID, string userName)
+        {
+            var account = GetAccountByUsername(userName);
+            if (account.SavedRecipeIds == null)
+            {
+                account.SavedRecipeIds = new List<int>();
+            }
+            if (!account.SavedRecipeIds.Contains(recipeID))
+            {
+                account.SavedRecipeIds.Add(recipeID);
+                string savedRecipesString = string.Join(",", account.SavedRecipeIds);
+                accConecction = new OleDbConnection(accConnectString);
+                queryString = "UPDATE AccountInformation SET SavedRecipes = '" + savedRecipesString + "' WHERE UserName = '" + userName + "'";
+                accCommand = new OleDbCommand(queryString, accConecction);
+                accConecction.Open();
+                accCommand.ExecuteNonQuery();
+                accConecction.Close();
+                LoadAccounts();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

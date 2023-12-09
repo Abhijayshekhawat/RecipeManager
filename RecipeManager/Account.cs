@@ -12,6 +12,7 @@ namespace RecipeManager
         private string lastName;
         private string userName;
         private string password;
+        private List<int> savedRecipeIds = new List<int>();
         public Account(string firstName, string lastName, string userName, string password)
         {
             this.FirstName = firstName;
@@ -19,10 +20,10 @@ namespace RecipeManager
             this.UserName = userName;
             this.Password = password;
         }
-        public string FirstName {  
-            get { 
-                return firstName; 
-            } 
+        public string FirstName {
+            get {
+                return firstName;
+            }
             set
             {
                 firstName = value;
@@ -41,9 +42,9 @@ namespace RecipeManager
         }
         public string UserName
         {
-            get { 
-                return userName; 
-                }
+            get {
+                return userName;
+            }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -55,9 +56,9 @@ namespace RecipeManager
         }
         public string Password
         {
-            get { 
-                return password; 
-                }
+            get {
+                return password;
+            }
             set
             {
                 if (value.Length < 8)
@@ -65,6 +66,16 @@ namespace RecipeManager
                     throw new ArgumentException("Password must be at least 8 characters long.");
                 }
                 password = value;
+            }
+        }
+        public List<int> SavedRecipeIds{
+            get
+            {
+                return savedRecipeIds;
+            }
+            set
+            {
+                savedRecipeIds = value;
             }
         }
     }

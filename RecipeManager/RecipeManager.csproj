@@ -50,6 +50,12 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountManagement.cs" />
+    <Compile Include="frmAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAccount.Designer.cs">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddIngredient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,12 +92,21 @@
     <Compile Include="frmSavedRecipes.Designer.cs">
       <DependentUpon>frmSavedRecipes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearch.Designer.cs">
+      <DependentUpon>frmSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="IngredientManagement.cs" />
     <Compile Include="Ingredients.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipe.cs" />
     <Compile Include="RecipeManagement.cs" />
+    <EmbeddedResource Include="frmAccount.resx">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddIngredient.resx">
       <DependentUpon>frmAddIngredient.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSavedRecipes.resx">
       <DependentUpon>frmSavedRecipes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearch.resx">
+      <DependentUpon>frmSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -143,6 +161,7 @@
     <Content Include="Images\account.png" />
     <Content Include="Images\create.jpeg" />
     <Content Include="Images\createRecipe.png" />
+    <Content Include="Images\Logo.png" />
     <Content Include="Images\mealPlan.png" />
     <Content Include="Images\noImage.jpg" />
     <Content Include="Images\savedRecipes.png" />

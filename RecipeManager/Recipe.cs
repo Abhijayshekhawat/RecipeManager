@@ -24,6 +24,7 @@ namespace RecipeManager
             recipeDirections = directions;
             servingSize = size;
             ingredients = items;
+            allergens = new List<Ingredients>();
         }
         public string RecipeName
         {
@@ -56,6 +57,7 @@ namespace RecipeManager
         {
             get
             {
+                allergens.Clear();
                 foreach (var ingredient in ingredients)
                 {
                     if (ingredient.IsAllergen)
